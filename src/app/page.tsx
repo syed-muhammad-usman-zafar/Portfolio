@@ -463,10 +463,9 @@ const Portfolio = () => {
             </p>
           </div>
           
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-9 max-w-5xl mx-auto">
             {[
               { icon: <Mail className="w-8 h-8" />, label: "Email", value: "usmanzafar2003@gmail.com", href: "mailto:usmanzafar2003@gmail.com" },
-              { icon: <Phone className="w-8 h-8" />, label: "Phone", value: "+92 335 0550319", href: "tel:+923350550319" },
               { icon: <Linkedin className="w-8 h-8" />, label: "LinkedIn", value: "Connect with me", href: "https://www.linkedin.com/in/usman--zafar/" },
               { icon: <Github className="w-8 h-8" />, label: "GitHub", value: "View my code", href: "https://github.com/syed-muhammad-usman-zafar" }
             ].map((contact, index) => (

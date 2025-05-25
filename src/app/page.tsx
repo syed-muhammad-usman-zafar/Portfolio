@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from 'react';
-import { Github, Linkedin, Mail, Phone, MapPin, ExternalLink, Calendar, Users, Code, Database, Smartphone, Globe, Award, GraduationCap, Briefcase, Download, ArrowRight, Star, Zap, Trophy, Target } from 'lucide-react';
+import { Github, Linkedin, Mail, Phone, MapPin, ExternalLink, Calendar,Code, Database, Smartphone, GraduationCap, Briefcase, Download, ArrowRight, Star, Zap } from 'lucide-react';
 
 const Portfolio = () => {
   const [activeSection, setActiveSection] = useState('about');
@@ -150,7 +150,7 @@ const Portfolio = () => {
                 </div>
                 
                 <h1 className="text-6xl lg:text-7xl font-bold leading-tight">
-                  <span className="text-white">I'm </span>
+                  <span className="text-white">Im </span>
                   <span className="bg-gradient-to-r from-emerald-400 via-teal-400 to-cyan-400 bg-clip-text text-transparent">
                     Usman
                   </span>
@@ -171,7 +171,7 @@ const Portfolio = () => {
                 <a href="https://www.linkedin.com/in/usman--zafar/" 
                    className="group inline-flex items-center px-8 py-4 bg-slate-800 border border-slate-700 text-white rounded-xl font-semibold hover:bg-slate-700 hover:border-emerald-500 transition-all duration-300">
                   <Linkedin className="w-5 h-5 mr-3" />
-                  Let's Connect
+                  Lets Connect
                   <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
                 </a>
                 
@@ -454,12 +454,12 @@ const Portfolio = () => {
           <div className="text-center mb-16">
             <h2 className="text-5xl font-bold mb-6">
               <span className="bg-gradient-to-r from-emerald-400 to-teal-400 bg-clip-text text-transparent">
-                Let's Connect
+                Lets Connect
               </span>
             </h2>
             <p className="text-xl text-slate-400 max-w-2xl mx-auto">
-              I'm always interested in new opportunities and collaborations. 
-              Feel free to reach out if you'd like to work together!
+              Im always interested in new opportunities and collaborations. 
+              Feel free to reach out if youd like to work together!
             </p>
           </div>
           

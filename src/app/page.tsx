@@ -42,6 +42,25 @@ const Portfolio = () => {
 
   const projects = [
     {
+        title: "Patient Influx Analysis Portal- Mansoorah Hospital",
+      subtitle: "Quarterly Patient Data Visualization Dashboard",
+      date: "May 2025",
+      description: "Developed an interactive Streamlit-based analytics dashboard for quarterly patient influx analysis across 31 departments from 2022 to 2025. Enabled CSV upload, dynamic department selection, and real-time generation of bar and trend analysis graphs to support data-driven decision-making in hospital meetings. Used by administrative staff to understand trends and allocate resources effectively.",
+      tech: ["Python", "Streamlit", "Pandas", "Plotly", "CSV Parsing"],
+     highlights: [
+      "CSV upload & schema handling",
+      "Department-wise filtering",
+      "Quarterly bar & trend analysis graphs",
+      "Used in real hospital meetings",
+      "Data download for selected departments",
+      "Cleaned and parsed noisy real-world hospital data"
+    ],
+      category: "Data Science",
+      featured: true,
+      github: "https://github.com/syed-muhammad-usman-zafar/Mansoorah-Hospital-Patient-Influx-Analysis",
+      website: "https://patient-influx-analysis.streamlit.app/"
+    },
+    {
       title: "MediTrack",
       subtitle: "Android Personal Health Companion App",
       date: "April 2025",
@@ -49,7 +68,8 @@ const Portfolio = () => {
       tech: ["Kotlin", "Java", "Firebase", "Material Design", "Android"],
       highlights: ["Medication tracker",,"AI Chatbot", "Calendar view","Nearby Pharmacy locator","Perscritions upload" ],
       category: "Mobile Development",
-      featured: true
+      featured: true,
+      github:"https://github.com/syed-muhammad-usman-zafar/MediTrack"
     },
     {
       title: "SharedFast",
@@ -59,19 +79,11 @@ const Portfolio = () => {
       tech: ["Kotlin","MediaStore", "RecyclerView", "Material Design","Android"],
       highlights: ["Folder-based organization", "Multi-platform sharing", "Image capture integration", "Adapter Pattern implementation"],
       category: "Mobile Development",
-      featured: true
+      featured: true,
+      github:"https://github.com/syed-muhammad-usman-zafar/SharedFast"
      
     },
-    {
-      title: "ExamChamp",
-      subtitle: "University Entry Test Preparation App",
-      date: "November 2024",
-      description: "Collaborated on a MEEN stack web application with role-based access for Admins, Teachers and Students for exam preparation. Built comprehensive MCQ management system with clean UI design and optimized backend performance. The platform serves thousands of students preparing for university entrance examinations.",
-      tech: ["MongoDB", "Express.js", "EJS", "Node.js", "Authentication"],
-      highlights: ["Role-based access control", "MCQ management system", "Clean UI design", "Optimized backend performance"],
-      category: "Web Development",
-      featured: true
-    },
+    
     {
       title: "ZakatFlow",
       subtitle: "Automated Zakat Computation System",
@@ -80,8 +92,11 @@ const Portfolio = () => {
       tech: ["Python", "Streamlit", "Data Visualization", "Pandas", "NumPy"],
       highlights: ["90% manual effort reduction", "Deployed app", "Asset visualization dashboard", "Automated calculation engine"],
       category: "Data Science",
-      featured: true
+      featured: true,
+        github: "https://github.com/syed-muhammad-usman-zafar/ZakatFlow", // Add your actual repo URL
+      website: "https://zakatflow.streamlit.app/" // Add if deployed
     }
+    
   ];
 
   const experience = {
@@ -353,6 +368,21 @@ const Portfolio = () => {
                     </span>
                   ))}
                 </div>
+                {/* ADD THIS SIMPLER VERSION */}
+{project.github && (
+  <div className="mt-4">
+    <a href={project.github} target="_blank" rel="noopener noreferrer" className="inline-flex items-center px-4 py-2 bg-emerald-600 hover:bg-emerald-500 text-white rounded-lg transition-colors mr-3">
+      <Github className="w-4 h-4 mr-2" />
+      View Code
+    </a>
+    {project.website && (
+      <a href={project.website} target="_blank" rel="noopener noreferrer" className="inline-flex items-center px-4 py-2 bg-slate-700 hover:bg-slate-600 text-white rounded-lg transition-colors">
+        <ExternalLink className="w-4 h-4 mr-2" />
+        Live Demo  
+      </a>
+    )}
+  </div>
+)}
               </div>
             ))}
           </div>

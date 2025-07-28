@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
 import { Github, Linkedin, Mail, MapPin, ExternalLink, Calendar,Code, Database, Smartphone, GraduationCap, Briefcase, Download, ArrowRight, Star, Zap } from 'lucide-react';
 
 const Portfolio = () => {
@@ -14,6 +15,34 @@ const Portfolio = () => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  // Optimized Animation variants
+  const fadeInUp = {
+    initial: { opacity: 0, y: 30 },
+    animate: { opacity: 1, y: 0 },
+    transition: { duration: 0.4, ease: "easeOut" }
+  };
+
+  const fadeInLeft = {
+    initial: { opacity: 0, x: -30 },
+    animate: { opacity: 1, x: 0 },
+    transition: { duration: 0.4, ease: "easeOut" }
+  };
+
+  const staggerChildren = {
+    initial: {},
+    animate: {
+      transition: {
+        staggerChildren: 0.05
+      }
+    }
+  };
+
+  const scaleIn = {
+    initial: { opacity: 0, scale: 0.95 },
+    animate: { opacity: 1, scale: 1 },
+    transition: { duration: 0.3, ease: "easeOut" }
+  };
 
   const skills = [
     { 
@@ -99,18 +128,48 @@ const Portfolio = () => {
     
   ];
 
-  const experience = {
-    title: "Junior Machine Learning Engineer",
-    company: "Omdena (Client: IREX)",
-    duration: "June 2024 - Aug 2024",
-    location: "Remote",
-    achievements: [
-      "Collaborated with global team to develop AI-powered content moderation and fact-checking tools",
-      "Built performance analysis notebook categorizing 10,000+ texts with 85%+ accuracy",
-      "Enhanced fact classification agent, improving workflow efficiency by 30-40%",
-      "Technologies: Python, Pandas, Scikit-learn, Machine Learning, NLP"
-    ]
-  };
+  const experiences = [
+    {
+      title: "AI Systems Intern & Team Lead - Data Science Department",
+      company: "FAST-NUCES",
+      duration: "June 2025 - Aug 2025",
+      location: "Lahore, Pakistan",
+      achievements: [
+        "Led a 5-member team in developing PaperPilot, a neuro-symbolic AI platform for automated academic paper co-authoring",
+        "Designed and implemented specialized agents (LLM Extraction Agent, Research Agent, Writing Agent, Citation Agent, Knowledge Graph Builder, and Orchestrator)",
+        "Automated 80% of the end-to-end research workflow, reducing manual effort by 90% and improving citation accuracy by 70% for 50+ beta users",
+        "Delivered features like dynamic graph visualization, auto-citation planning, and DOCX export for seamless user experience",
+        "Technologies: Python, Streamlit, NetworkX (Knowledge Graphs), LangChain, Large Language Models(LLMs), DOCX Export"
+      ]
+    },
+    {
+      title: "Software Engineering Intern",
+      company: "DropShot",
+      duration: "June 2025 - Aug 2025",
+      location: "Remote",
+      achievements: [
+        "Developed and optimized front-end dashboards using React and TypeScript for real-time padel player performance analytics",
+        "Contributed to system design discussions, improving dashboard architecture and scalability",
+        "Implemented responsive design patterns ensuring optimal user experience across desktop and mobile platforms",
+        "Collaborated with cross-functional teams to deliver high-quality features within tight deadlines",
+        "Technologies: React, TypeScript, Tailwind CSS, REST APIs, Git, Figma"
+      ],
+      website: "https://www.drop-shot.live"
+    },
+    {
+      title: "Junior Machine Learning Engineer",
+      company: "Omdena (Client: IREX)",
+      duration: "June 2024 - Aug 2024",
+      location: "Remote",
+      achievements: [
+        "Collaborated with global team to develop AI-powered content moderation and fact-checking tools for combating misinformation",
+        "Built comprehensive performance analysis notebook categorizing 10,000+ texts with 85%+ accuracy using advanced NLP techniques",
+        "Enhanced fact classification agent functionality, improving overall workflow efficiency by 30-40%",
+        "Participated in agile development cycles and contributed to technical documentation and code reviews",
+        "Technologies: Python, Pandas, Scikit-learn, Machine Learning, Natural Language Processing"
+      ]
+    }
+  ];
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-950 via-emerald-950 to-slate-900 text-white">
@@ -149,7 +208,7 @@ const Portfolio = () => {
 
       {/*  Hero Section */}
       <section id="about" className="min-h-screen flex items-center py-20 px-6 relative overflow-hidden">
-        {/* Background Effects */}
+        {/* Simplified Background Effects */}
         <div className="absolute inset-0 opacity-20">
           <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-emerald-500/20 rounded-full blur-3xl"></div>
           <div className="absolute bottom-1/4 right-1/4 w-64 h-64 bg-teal-500/20 rounded-full blur-3xl"></div>
@@ -157,56 +216,96 @@ const Portfolio = () => {
         
         <div className="max-w-7xl mx-auto relative z-10">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <div className="space-y-8">
+            <motion.div 
+              className="space-y-8"
+              initial="initial"
+              animate="animate"
+              variants={staggerChildren}
+            >
               <div className="space-y-4">
-                <div className="inline-flex items-center px-4 py-2 bg-emerald-900/30 border border-emerald-700/50 rounded-full">
+                <motion.div 
+                  className="inline-flex items-center px-4 py-2 bg-emerald-900/30 border border-emerald-700/50 rounded-full"
+                  variants={fadeInUp}
+                >
                   <div className="w-2 h-2 bg-emerald-400 rounded-full mr-3 animate-pulse"></div>
                   <span className="text-emerald-300 text-sm">Available for opportunities</span>
-                </div>
+                </motion.div>
                 
-                <h1 className="text-6xl lg:text-7xl font-bold leading-tight">
+                <motion.h1 
+                  className="text-6xl lg:text-7xl font-bold leading-tight"
+                  variants={fadeInUp}
+                >
                   <span className="text-white">Im </span>
                   <span className="bg-gradient-to-r from-emerald-400 via-teal-400 to-cyan-400 bg-clip-text text-transparent">
                     Usman
                   </span>
-                </h1>
+                </motion.h1>
                 
-                <div className="text-2xl lg:text-3xl text-slate-300 space-y-2">
+                <motion.div 
+                  className="text-2xl lg:text-3xl text-slate-300 space-y-2"
+                  variants={fadeInUp}
+                >
                   <p>Computer Science Student &</p>
                   <p className="text-emerald-400 font-semibold">AI/ML Enthusiast</p>
-                </div>
+                </motion.div>
               </div>
 
-              <p className="text-xl text-slate-400 leading-relaxed max-w-xl mb-8">
+              <motion.p 
+                className="text-xl text-slate-400 leading-relaxed max-w-xl mb-8"
+                variants={fadeInUp}
+              >
                 7th-semester Computer Science student with hands-on experience in AI/ML, web, and Android development. 
                 Passionate about building impactful solutions and improving user experiences through technology.
-              </p>
+              </motion.p>
 
-              <div className="flex flex-wrap gap-4 justify-center lg:justify-start">
-                <a href="https://www.linkedin.com/in/usman--zafar/" 
-                   className="group inline-flex items-center px-8 py-4 bg-slate-800 border border-slate-700 text-white rounded-xl font-semibold hover:bg-slate-700 hover:border-emerald-500 transition-all duration-300">
+              <motion.div 
+                className="flex flex-wrap gap-4 justify-center lg:justify-start"
+                variants={staggerChildren}
+              >
+                <motion.a 
+                  href="https://www.linkedin.com/in/usman--zafar/" 
+                  className="group inline-flex items-center px-8 py-4 bg-slate-800 border border-slate-700 text-white rounded-xl font-semibold hover:bg-slate-700 hover:border-emerald-500 transition-all duration-300"
+                  variants={scaleIn}
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                >
                   <Linkedin className="w-5 h-5 mr-3" />
                   Lets Connect
                   <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
-                </a>
+                </motion.a>
                 
-                <a href="/resume.pdf" 
-                   download="Usman_Zafar_Resume.pdf"
-                   className="inline-flex items-center px-8 py-4 bg-slate-800 border border-slate-700 text-white rounded-xl font-semibold hover:bg-slate-700 hover:border-emerald-500 transition-all duration-300">
+                <motion.a 
+                  href="/resume.pdf" 
+                  download="Usman_Zafar_Resume.pdf"
+                  className="inline-flex items-center px-8 py-4 bg-slate-800 border border-slate-700 text-white rounded-xl font-semibold hover:bg-slate-700 hover:border-emerald-500 transition-all duration-300"
+                  variants={scaleIn}
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                >
                   <Download className="w-5 h-5 mr-3" />
                   Download Resume
-                </a>
+                </motion.a>
                 
-                <a href="https://github.com/syed-muhammad-usman-zafar" 
-                   className="inline-flex items-center px-8 py-4 bg-slate-800 border border-slate-700 text-white rounded-xl font-semibold hover:bg-slate-700 hover:border-emerald-500 transition-all duration-300">
+                <motion.a 
+                  href="https://github.com/syed-muhammad-usman-zafar" 
+                  className="inline-flex items-center px-8 py-4 bg-slate-800 border border-slate-700 text-white rounded-xl font-semibold hover:bg-slate-700 hover:border-emerald-500 transition-all duration-300"
+                  variants={scaleIn}
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                >
                   <Github className="w-5 h-5 mr-3" />
                   View GitHub
-                </a>
-              </div>
-            </div>
+                </motion.a>
+              </motion.div>
+            </motion.div>
 
-            {/* Photo Section */}
-            <div className="relative flex justify-center">
+            {/* Simplified Photo Section */}
+            <motion.div 
+              className="relative flex justify-center"
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5, ease: "easeOut", delay: 0.2 }}
+            >
               <div className="relative">
                 {/* Outer glow effect */}
                 <div className="absolute inset-0 bg-gradient-to-r from-emerald-400/20 to-teal-400/20 rounded-3xl blur-2xl scale-110"></div>
@@ -222,7 +321,7 @@ const Portfolio = () => {
                     </div>
                   </div>
 
-                {/* Floating elements */}
+                {/* Static floating elements - no animation to reduce lag */}
                 <div className="absolute -top-4 -right-4 w-16 h-16 bg-emerald-500/20 rounded-full flex items-center justify-center backdrop-blur-sm border border-emerald-400/30">
                   <Code className="w-8 h-8 text-emerald-400" />
                 </div>
@@ -231,7 +330,7 @@ const Portfolio = () => {
                   <Zap className="w-6 h-6 text-teal-400" />
                 </div>
               </div>
-            </div>
+            </motion.div>
           </div>
         </div>
       </section>
@@ -239,7 +338,13 @@ const Portfolio = () => {
       {/* Enhanced Experience Section */}
       <section id="experience" className="py-24 px-6 relative">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
+          <motion.div 
+            className="text-center mb-16"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.4 }}
+          >
             <h2 className="text-5xl font-bold mb-6">
               <span className="bg-gradient-to-r from-emerald-400 to-teal-400 bg-clip-text text-transparent">
                 Experience
@@ -248,46 +353,69 @@ const Portfolio = () => {
             <p className="text-xl text-slate-400 max-w-2xl mx-auto">
               Building impactful solutions with cutting-edge technology
             </p>
-          </div>
+          </motion.div>
 
-          <div className="relative">
+          <div className="relative space-y-8">
             <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-emerald-400 to-teal-400"></div>
             
-            <div className="relative bg-gradient-to-br from-slate-800/50 to-emerald-900/20 rounded-3xl p-8 border border-emerald-800/30 backdrop-blur-sm">
-              <div className="flex items-start gap-8">
-                <div className="bg-gradient-to-r from-emerald-500 to-teal-500 rounded-2xl p-4 flex-shrink-0">
-                  <Briefcase className="w-8 h-8 text-white" />
-                </div>
-                
-                <div className="flex-1">
-                  <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between mb-6">
-                    <div>
-                      <h3 className="text-3xl font-bold text-white mb-2">{experience.title}</h3>
-                      <p className="text-xl text-emerald-400 font-semibold">{experience.company}</p>
-                    </div>
-                    <div className="text-slate-400 mt-4 lg:mt-0 space-y-2">
-                      <div className="flex items-center gap-3">
-                        <Calendar className="w-5 h-5 text-emerald-400" />
-                        <span>{experience.duration}</span>
-                      </div>
-                      <div className="flex items-center gap-3">
-                        <MapPin className="w-5 h-5 text-emerald-400" />
-                        <span>{experience.location}</span>
-                      </div>
-                    </div>
+            {experiences.map((experience, index) => (
+              <motion.div 
+                key={index} 
+                className="relative bg-gradient-to-br from-slate-800/50 to-emerald-900/20 rounded-3xl p-8 border border-emerald-800/30 backdrop-blur-sm hover:scale-[1.01] transition-transform duration-300"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: index * 0.1 }}
+              >
+                <div className="flex items-start gap-8">
+                  <div className="bg-gradient-to-r from-emerald-500 to-teal-500 rounded-2xl p-4 flex-shrink-0">
+                    <Briefcase className="w-8 h-8 text-white" />
                   </div>
                   
-                  <div className="space-y-4">
-                    {experience.achievements.map((achievement, index) => (
-                      <div key={index} className="flex items-start gap-4 group">
-                        <div className="w-2 h-2 bg-emerald-400 rounded-full mt-3 flex-shrink-0 group-hover:scale-150 transition-transform"></div>
-                        <p className="text-slate-300 leading-relaxed group-hover:text-white transition-colors">{achievement}</p>
+                  <div className="flex-1">
+                    <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between mb-6">
+                      <div>
+                        <h3 className="text-3xl font-bold text-white mb-2">{experience.title}</h3>
+                        <p className="text-xl text-emerald-400 font-semibold">{experience.company}</p>
                       </div>
-                    ))}
+                      <div className="text-slate-400 mt-4 lg:mt-0 space-y-2">
+                        <div className="flex items-center gap-3">
+                          <Calendar className="w-5 h-5 text-emerald-400" />
+                          <span>{experience.duration}</span>
+                        </div>
+                        <div className="flex items-center gap-3">
+                          <MapPin className="w-5 h-5 text-emerald-400" />
+                          <span>{experience.location}</span>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <div className="space-y-4">
+                      {experience.achievements.map((achievement, achievementIndex) => (
+                        <div key={achievementIndex} className="flex items-start gap-4 group">
+                          <div className="w-2 h-2 bg-emerald-400 rounded-full mt-3 flex-shrink-0 group-hover:scale-150 transition-transform"></div>
+                          <p className="text-slate-300 leading-relaxed group-hover:text-white transition-colors">{achievement}</p>
+                        </div>
+                      ))}
+                    </div>
+
+                    {experience.website && (
+                      <div className="mt-6">
+                        <a 
+                          href={experience.website} 
+                          target="_blank" 
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center px-4 py-2 bg-emerald-600 hover:bg-emerald-500 text-white rounded-lg transition-colors hover:scale-105 transform duration-200"
+                        >
+                          <ExternalLink className="w-4 h-4 mr-2" />
+                          Visit Website
+                        </a>
+                      </div>
+                    )}
                   </div>
                 </div>
-              </div>
-            </div>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
@@ -295,7 +423,13 @@ const Portfolio = () => {
       {/* Enhanced Projects Section */}
       <section id="projects" className="py-24 px-6 relative">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
+          <motion.div 
+            className="text-center mb-16"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.4 }}
+          >
             <h2 className="text-5xl font-bold mb-6">
               <span className="bg-gradient-to-r from-emerald-400 to-teal-400 bg-clip-text text-transparent">
                 Featured Projects
@@ -304,15 +438,19 @@ const Portfolio = () => {
             <p className="text-xl text-slate-400 max-w-2xl mx-auto">
               Innovative solutions that make a difference
             </p>
-          </div>
+          </motion.div>
 
           <div className="grid lg:grid-cols-2 gap-8">
             {projects.map((project, index) => (
-              <div
+              <motion.div
                 key={index}
-                className={`group relative bg-gradient-to-br from-slate-800/50 to-emerald-900/20 rounded-3xl p-8 border border-emerald-800/30 backdrop-blur-sm hover:border-emerald-600/50 transition-all duration-500 hover:scale-[1.02] ${
+                className={`group relative bg-gradient-to-br from-slate-800/50 to-emerald-900/20 rounded-3xl p-8 border border-emerald-800/30 backdrop-blur-sm hover:border-emerald-600/50 transition-all duration-300 hover:scale-[1.01] ${
                   project.featured ? 'lg:col-span-2' : ''
                 }`}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: index * 0.05 }}
               >
                 {project.featured && (
                   <div className="absolute top-6 right-6 bg-gradient-to-r from-emerald-500 to-teal-500 text-white px-4 py-2 rounded-full text-sm font-semibold">
@@ -358,32 +496,42 @@ const Portfolio = () => {
                   </div>
                 </div>
 
-                <div className="flex flex-wrap gap-2">
+                <div className="flex flex-wrap gap-2 mb-4">
                   {project.tech.map((tech, i) => (
                     <span
                       key={i}
-                      className="px-4 py-2 bg-slate-700/50 border border-slate-600/50 text-slate-300 rounded-xl text-sm font-medium hover:bg-emerald-900/30 hover:border-emerald-600/50 transition-colors"
+                      className="px-4 py-2 bg-slate-700/50 border border-slate-600/50 text-slate-300 rounded-xl text-sm font-medium hover:bg-emerald-900/30 hover:border-emerald-600/50 transition-colors hover:scale-105 transform duration-200"
                     >
                       {tech}
                     </span>
                   ))}
                 </div>
-                {/* ADD THIS SIMPLER VERSION */}
-{project.github && (
-  <div className="mt-4">
-    <a href={project.github} target="_blank" rel="noopener noreferrer" className="inline-flex items-center px-4 py-2 bg-emerald-600 hover:bg-emerald-500 text-white rounded-lg transition-colors mr-3">
-      <Github className="w-4 h-4 mr-2" />
-      View Code
-    </a>
-    {project.website && (
-      <a href={project.website} target="_blank" rel="noopener noreferrer" className="inline-flex items-center px-4 py-2 bg-slate-700 hover:bg-slate-600 text-white rounded-lg transition-colors">
-        <ExternalLink className="w-4 h-4 mr-2" />
-        Live Demo  
-      </a>
-    )}
-  </div>
-)}
-              </div>
+
+                {project.github && (
+                  <div>
+                    <a 
+                      href={project.github} 
+                      target="_blank" 
+                      rel="noopener noreferrer" 
+                      className="inline-flex items-center px-4 py-2 bg-emerald-600 hover:bg-emerald-500 text-white rounded-lg transition-colors mr-3 hover:scale-105 transform duration-200"
+                    >
+                      <Github className="w-4 h-4 mr-2" />
+                      View Code
+                    </a>
+                    {project.website && (
+                      <a 
+                        href={project.website} 
+                        target="_blank" 
+                        rel="noopener noreferrer" 
+                        className="inline-flex items-center px-4 py-2 bg-slate-700 hover:bg-slate-600 text-white rounded-lg transition-colors hover:scale-105 transform duration-200"
+                      >
+                        <ExternalLink className="w-4 h-4 mr-2" />
+                        Live Demo  
+                      </a>
+                    )}
+                  </div>
+                )}
+              </motion.div>
             ))}
           </div>
         </div>
@@ -392,7 +540,13 @@ const Portfolio = () => {
       {/* Enhanced Skills Section */}
       <section id="skills" className="py-24 px-6 relative">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
+          <motion.div 
+            className="text-center mb-16"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.4 }}
+          >
             <h2 className="text-5xl font-bold mb-6">
               <span className="bg-gradient-to-r from-emerald-400 to-teal-400 bg-clip-text text-transparent">
                 Technical Skills
@@ -401,16 +555,20 @@ const Portfolio = () => {
             <p className="text-xl text-slate-400 max-w-2xl mx-auto">
               Cutting-edge technologies and frameworks
             </p>
-          </div>
+          </motion.div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-8">
             {skills.map((skillGroup, index) => (
-              <div
+              <motion.div
                 key={index}
-                className="group bg-gradient-to-br from-slate-800/50 to-emerald-900/20 rounded-3xl p-8 border border-emerald-800/30 backdrop-blur-sm hover:border-emerald-600/50 transition-all duration-500 hover:scale-105"
+                className="group bg-gradient-to-br from-slate-800/50 to-emerald-900/20 rounded-3xl p-8 border border-emerald-800/30 backdrop-blur-sm hover:border-emerald-600/50 transition-all duration-300 hover:scale-[1.02]"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: index * 0.1 }}
               >
                 <div className="flex items-center gap-4 mb-8">
-                  <div className="bg-gradient-to-r from-emerald-500 to-teal-500 rounded-2xl p-3 text-white group-hover:scale-110 transition-transform">
+                  <div className="bg-gradient-to-r from-emerald-500 to-teal-500 rounded-2xl p-3 text-white hover:scale-110 transition-transform duration-200">
                     {skillGroup.icon}
                   </div>
                   <h3 className="text-xl font-bold text-white group-hover:text-emerald-400 transition-colors">
@@ -420,13 +578,13 @@ const Portfolio = () => {
                 
                 <div className="space-y-4">
                   {skillGroup.items.map((skill, i) => (
-                    <div key={i} className="flex items-center gap-4 group/item">
+                    <div key={i} className="flex items-center gap-4 group/item hover:translate-x-2 transition-transform duration-200">
                       <div className="w-2 h-2 bg-emerald-400 rounded-full group-hover/item:scale-150 transition-transform"></div>
                       <span className="text-slate-300 group-hover/item:text-white transition-colors">{skill}</span>
                     </div>
                   ))}
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>

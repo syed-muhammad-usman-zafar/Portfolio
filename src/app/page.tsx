@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from 'react';
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { Github, Linkedin, Mail, MapPin, ExternalLink, Calendar,Code, Database, Smartphone, GraduationCap, Briefcase, Download, ArrowRight, Star, Zap } from 'lucide-react';
 
@@ -23,11 +24,7 @@ const Portfolio = () => {
     transition: { duration: 0.4, ease: "easeOut" }
   };
 
-  const fadeInLeft = {
-    initial: { opacity: 0, x: -30 },
-    animate: { opacity: 1, x: 0 },
-    transition: { duration: 0.4, ease: "easeOut" }
-  };
+
 
   const staggerChildren = {
     initial: {},
@@ -313,10 +310,13 @@ const Portfolio = () => {
                {/* Main photo container */}
                   <div className="relative w-80 h-96 bg-gradient-to-br from-slate-800 to-emerald-900 rounded-3xl p-1 shadow-2xl">
                     <div className="w-full h-full bg-slate-800 rounded-3xl overflow-hidden">
-                      <img 
+                      <Image 
                         src="/images/profile.jpg"
                         alt="My Photo"
+                        width={320}
+                        height={384}
                         className="w-full h-full object-cover"
+                        priority
                       />
                     </div>
                   </div>
